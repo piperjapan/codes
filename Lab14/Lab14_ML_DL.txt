@@ -1,3 +1,8 @@
-下記URLをChromeで開き、Jupyter Notebookを参照します。(PPT,PDFは使用しません)
+このセッションではJupyter Notebookのみを使用します。PPT,PDFは使用しません。
 
-https://colab.research.google.com/github/miho777/Storage_GURU/blob/master/Piper_ML_MNIST_Keras_b_.ipynb
+===
+Google Colaboratory で、ローカルリポジトリ\Lab14\Piper_ML_MNIST_Keras_c.ipynbをオープンします。
+（ファイルメニューからノートブックアップロード）
+
+下記URLをChromeで開くことでも開始できます。
+https://colab.research.google.com/github/miho777/Storage_GURU/blob/master/Piper_ML_MNIST_Keras_c.ipynb
