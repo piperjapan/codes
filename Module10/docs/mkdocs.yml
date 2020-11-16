@@ -58,3 +58,4 @@ nav:
     - Lab 3 - マニフェストの利用: lab-k8s-manifest.md
     - Lab 4 - その他の要素: lab-k8s-misc.md
     - Lab 5 - おわりに: lab-k8s-outro.md
+  - 環境のクリーンアップ: cleanup-gcp.md
