@@ -142,7 +142,7 @@ p4app-697568cdf7-d54dq   1/1     Running   0          72m
 
 では、`p4app` を外部に公開するため、**Service** をデプロイします。Service は、アプリケーションを外部に公開するために必要なリソースです。
 
-[![image](https://user-images.githubusercontent.com/2920259/99185914-2685aa00-2790-11eb-8cb0-b794235ddebc.png)](https://user-images.githubusercontent.com/2920259/99185914-2685aa00-2790-11eb-8cb0-b794235ddebc.png)
+[![image](https://user-images.githubusercontent.com/2920259/99256145-4bddeb00-2858-11eb-80e7-6dcf6f458e24.png)](https://user-images.githubusercontent.com/2920259/99256145-4bddeb00-2858-11eb-80e7-6dcf6f458e24.png)
 
 ここではタイプとして **LoadBalancer** を指定して Service を作成します（①）。これにより、仮想ロードバランサが自動で構成され、アプリケーション（Pod）にロードバランサ経由で外部から接続できる（②）ようになります。`--port` オプションは外部に公開するポート、`--target-port` はアプリケーション側（Pod 側）のポートです。
 
