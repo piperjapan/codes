@@ -16,7 +16,7 @@
     
     
       
-        <title>Lab 8 - おわりに - Docker & Kubernetes with Labs</title>
+        <title>環境のクリーンアップ - Docker & Kubernetes with Labs</title>
       
     
     
@@ -67,7 +67,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#docker-lab" class="md-skip">
+        <a href="#_1" class="md-skip">
           コンテンツにスキップ
         </a>
       
@@ -97,7 +97,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              Lab 8 - おわりに
+              環境のクリーンアップ
             
           </span>
         </div>
@@ -181,12 +181,10 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
     
     <label class="md-nav__link" for="nav-2">
       Docker ラボ
@@ -300,56 +298,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        Lab 8 - おわりに
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-    
-    <a href="./" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../lab-docker-outro/" class="md-nav__link">
       Lab 8 - おわりに
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary" aria-label="目次">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目次
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    ここまででできたこと
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    仮想マシンとコンテナ
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -522,11 +475,63 @@
       
       
 
+  
 
-  <li class="md-nav__item">
-    <a href="../cleanup-gcp/" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        環境のクリーンアップ
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" class="md-nav__link md-nav__link--active">
       環境のクリーンアップ
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#kubernetes" class="md-nav__link">
+    Kubernetes クラスタの削除
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker" class="md-nav__link">
+    Docker 用仮想マシンの削除
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    プロジェクトの削除
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
     
@@ -554,15 +559,22 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    ここまででできたこと
+  <a href="#kubernetes" class="md-nav__link">
+    Kubernetes クラスタの削除
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker" class="md-nav__link">
+    Docker 用仮想マシンの削除
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    仮想マシンとコンテナ
+    プロジェクトの削除
   </a>
   
 </li>
@@ -580,25 +592,23 @@
               
                 
                 
-                <h1 id="docker-lab">Docker Lab： おわりに<a class="headerlink" href="#docker-lab" title="Permanent link">&para;</a></h1>
-<h2 id="_1">ここまででできたこと<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>コンテナの概念に慣れるべく、Docker の基本的な取り扱いをざっくり総ざらいしました。</p>
-<p>単一のコンテナを動かせるだけでなく、複数のコンテナを協調させられ、データの永続化もできるようになりました。さらに、既成のコンテナイメージが存在していなくても、自分のアプリケーションを自分だけのコンテナイメージにビルドして利用する方法を学習しました。</p>
-<p>ここまでくれば、実際のところ、相当にいろいろなことがコンテナで実現できます。</p>
-<p>今回は何らかのアプリケーションを動かすことを目的にしていましたが、例えば、<strong>CentOS や Ubuntu のコンテナイメージ</strong> も存在しており、うまく使えば開発作業やちょっとした動作確認でも柔軟に活用できます。</p>
-<p>今日、コンテナを <strong>なんとなくでもいいからとりあえず使えること</strong> は、これからの時代、必ず武器にできるものです。すでにみなさんは、インタネットでおもしろそうなツールを見つけたときに、</p>
-<ul>
-<li>OS を汚しそうだからやめておこう</li>
-<li>コンテナで動かすっぽいけどよくわからないからやめておこう</li>
-</ul>
-<p>……な理由であきらめる必要はなくなっています。GCP でインスタンスを作って、とにかく <code>docker run</code> してしまうところから、コンテナライフを始めていきましょう。</p>
-<h2 id="_2">仮想マシンとコンテナ<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>コンテナは仮想マシンとよく比較されます。論理的に別の空間を作り出してその中で別のものを動かす、という概念レベルでは近しいものではありますが、実際の使い勝手や性能は大きく異なります。</p>
-<p>仮想マシンでは、ハイパバイザが仮想ハードウェアを提供し、そこでゲスト OS を動かして、さらにその中でアプリケーションが動きます。最終的に動かしたいアプリケーションがどれだけ軽量なものであっても、そもそも OS を動かすためのリソースは必ず用意することになり、無駄が非常に多いことになります。</p>
-<p>また、いわゆるマイクロサービスの概念を仮想マシンレベルで行おうとすると、そうした無駄が蓄積するばかりでなく、ネットワークの構成やストレージの構成も複雑化してしまうだけでなく、根本的にデプロイが非常に大変です。例えばそのアプリケーション専用の OVF ファイルを作成するとしても、自動デプロイ向けの設計を作りこんだり、ゲスト OS レイヤのメンテナンスを考慮したり、大容量の OVF ファイルを大量に配信するインフラを整えたり、いくつものハードルがあります。</p>
-<p>他方、コンテナは、理論上、オーバヘッドはほとんどありません。Linux のカーネルがもともと持っている論理的なリソース分割の仕組みをうまくまとめ上げ、あるプロセス専用の空間をコンテナホスト上に論理的に作り出してくれます。ゲスト OS レイヤが存在しないため非常に軽量で、圧倒的な速度で気軽に作ったり消したり作り直したりできます。</p>
-<p>なにより、コンテナを取り巻くエコシステムの習熟が驚異的です。Docker Hub をはじめとするレジストリには膨大なコンテナイメージが集まっていますし、コンテナの利用を前提にしたアプリケーションの配布も一般化してきました。</p>
-<p>開発環境もコンテナをうまく使うようになってきて、Windows 端末でありながら Docker を使って CentOS や Ubuntu 上での動作を確認できます。コンテナホストを汚すことなく疑似的に別の OS と同等の空間を作れるので、依存するパッケージがツール間で競合していたとしても、それぞれ用のコンテナを作ってあげれば、気にする必要もありません。Python でバージョンやモジュールを切り替えるために <code>pyenv</code> や <code>venv</code> でがんばらなくてもよくなってきています。</p>
+                <h1 id="_1">環境のクリーンアップ<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>ラボが完了したら、利用した仮想マシンや Kubernetes クラスタは削除します。</p>
+<p>無料枠を使っている場合は、削除しなくても勝手に課金が開始されることはありませんが、残りの無料枠を無駄にしないためにも、使い終わったら削除する運用を心がけるとよいでしょう。これまでのラボで体験したとおり、必要になったらいつでも簡単に再作成できます。</p>
+<h2 id="kubernetes">Kubernetes クラスタの削除<a class="headerlink" href="#kubernetes" title="Permanent link">&para;</a></h2>
+<p>GCP のコンソールで、<code>[ Kubernetes Engine ]</code> &gt; <code>[ クラスタ ]</code> を開き、作成したクラスタの右側の <code>[ 削除 ]</code> アイコンをクリックします。</p>
+<p><a href="https://user-images.githubusercontent.com/2920259/99260656-083aaf80-285f-11eb-9d6c-5e1b39d527b2.png"><img alt="image" src="https://user-images.githubusercontent.com/2920259/99260656-083aaf80-285f-11eb-9d6c-5e1b39d527b2.png" /></a></p>
+<p>確認画面で再び <code>[ 削除 ]</code> をクリックすると、削除が開始されます。数分かかるので、完了を待機します。</p>
+<h2 id="docker">Docker 用仮想マシンの削除<a class="headerlink" href="#docker" title="Permanent link">&para;</a></h2>
+<p>GCP のコンソールで、<code>[ Compute Engine ]</code> &gt; <code>[ VM インスタンス ]</code> を開き、作成した仮想マシンの右端の <code>[ ︙ ]</code> メニュから <code>[ 削除 ]</code> を選択します。</p>
+<p><a href="https://user-images.githubusercontent.com/2920259/99261013-7f704380-285f-11eb-86cb-60260a28ca54.png"><img alt="image" src="https://user-images.githubusercontent.com/2920259/99261013-7f704380-285f-11eb-86cb-60260a28ca54.png" /></a></p>
+<p>確認画面で再び <code>[ 削除 ]</code> をクリックすると、削除が開始されます。数分かかるので、完了を待機します。</p>
+<h2 id="_2">プロジェクトの削除<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>GCP のコンソールで、画面上部のプロジェクト名をクリックして、さらに <code>[ リソース管理 ]</code> アイコンをクリックします。</p>
+<p><a href="https://user-images.githubusercontent.com/2920259/99261487-2523b280-2860-11eb-9c4a-4df951b9e213.png"><img alt="image" src="https://user-images.githubusercontent.com/2920259/99261487-2523b280-2860-11eb-9c4a-4df951b9e213.png" /></a></p>
+<p>削除したいプロジェクトにチェックをいれ、上部の <code>[ 削除 ]</code> をクリックし、表示された確認画面で指示に従ってプロジェクト ID を入力してから、<code>[ シャットダウン ]</code> をクリックします。</p>
+<p><a href="https://user-images.githubusercontent.com/2920259/99261735-75027980-2860-11eb-88e4-e33f58024b55.png"><img alt="image" src="https://user-images.githubusercontent.com/2920259/99261735-75027980-2860-11eb-88e4-e33f58024b55.png" /></a></p>
+<p>数分かかるので、完了を待機します。</p>
                 
               
               
@@ -617,7 +627,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../lab-docker-shell/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../lab-k8s-outro/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -626,25 +636,11 @@
                 <span class="md-footer-nav__direction">
                   前
                 </span>
-                Lab 7 - シェルの利用
+                Lab 5 - おわりに
               </div>
             </div>
           </a>
         
-        
-          <a href="../lab-compose-intro/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-footer-nav__title">
-              <div class="md-ellipsis">
-                <span class="md-footer-nav__direction">
-                  次
-                </span>
-                Lab 1 - はじめに
-              </div>
-            </div>
-            <div class="md-footer-nav__button md-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
-            </div>
-          </a>
         
       </nav>
     </div>
