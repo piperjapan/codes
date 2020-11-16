@@ -781,7 +781,7 @@ pod/p4app-697568cdf7-d54dq   <span class="m">1</span>/1     Running   <span clas
 <h3 id="_5">アプリケーションの公開<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
 <p>現在はポッドがひとつのため、<code>[ READY ]</code> が <code>1/1</code> になっていますが、この段階では、まだ Web アプリケーションにはアクセスできません。明示的に操作しない限り、Kubernetes で動作したアプリケーションが外部に公開されることはありません。</p>
 <p>では、<code>p4app</code> を外部に公開するため、<strong>Service</strong> をデプロイします。Service は、アプリケーションを外部に公開するために必要なリソースです。</p>
-<p><a href="https://user-images.githubusercontent.com/2920259/99185914-2685aa00-2790-11eb-8cb0-b794235ddebc.png"><img alt="image" src="https://user-images.githubusercontent.com/2920259/99185914-2685aa00-2790-11eb-8cb0-b794235ddebc.png" /></a></p>
+<p><a href="https://user-images.githubusercontent.com/2920259/99256145-4bddeb00-2858-11eb-80e7-6dcf6f458e24.png"><img alt="image" src="https://user-images.githubusercontent.com/2920259/99256145-4bddeb00-2858-11eb-80e7-6dcf6f458e24.png" /></a></p>
 <p>ここではタイプとして <strong>LoadBalancer</strong> を指定して Service を作成します（①）。これにより、仮想ロードバランサが自動で構成され、アプリケーション（Pod）にロードバランサ経由で外部から接続できる（②）ようになります。<code>--port</code> オプションは外部に公開するポート、<code>--target-port</code> はアプリケーション側（Pod 側）のポートです。</p>
 <div class="highlight"><pre><span></span><code>kubectl expose deployment p4app --type<span class="o">=</span>LoadBalancer --port <span class="m">80</span> --target-port <span class="m">8080</span>
 </code></pre></div>

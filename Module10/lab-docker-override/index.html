@@ -603,6 +603,7 @@
 <p>こうした課題に対する解決策として、ほとんどのコンテナイメージは、<strong>環境変数で設定を変更できる</strong> ように作られています。あるいは、別の手段として、<strong>コンテナ内のファイルをコンテナ外のファイルで置き換える</strong> ことで設定をコントロールできる場合もあります。</p>
 <p>ここでは、この二パタンを簡単に実践してみましょう。</p>
 <h2 id="_1">環境変数による設定の変更<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p><a href="https://user-images.githubusercontent.com/2920259/99256361-a1b29300-2858-11eb-9265-26576af92d66.png"><img alt="image" src="https://user-images.githubusercontent.com/2920259/99256361-a1b29300-2858-11eb-9265-26576af92d66.png" /></a></p>
 <p>今回使っている <code>p4app</code> では、次の項目を環境変数で制御できるようにしています。</p>
 <table>
 <thead>
@@ -651,6 +652,7 @@ docker rm -f my-awesome-redis
 docker ps -a
 </code></pre></div>
 <h2 id="_2">設定ファイルの置き換えによる設定の変更<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p><a href="https://user-images.githubusercontent.com/2920259/99256912-7e3c1800-2859-11eb-810f-1c5c4f4f0fd0.png"><img alt="image" src="https://user-images.githubusercontent.com/2920259/99256912-7e3c1800-2859-11eb-810f-1c5c4f4f0fd0.png" /></a></p>
 <p>環境変数による設定変更に対応していない場合も、<strong>バインドマウント</strong> をうまく使うとコンテナ外から設定を注入できます。具体的には、<strong>コンテナ内の設定ファイルを任意のモノに置き換えてしまう</strong> ことで実現します。</p>
 <p>残念ながら、<code>p4app</code> のコンテナイメージには、作りが簡単すぎて設定ファイルが含まれていませんので、単純化して <strong>背景画像を差し替える</strong> ことを目論みます。ここでは例として、カレントディレクトリの <code>img/new-bg.jpg</code> に差し替えてみましょう。</p>
 <div class="highlight"><pre><span></span><code>ls -l img
@@ -670,6 +672,8 @@ docker ps -a
 </code></pre></div>
 <h2 id="_4">ここまででできたこと<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <p>同じコンテナイメージを使う場合でも、環境に合わせて何らかの設定変更は必要で、このラボでは実際の変更方法を二種類実践しました。</p>
+<p><a href="https://user-images.githubusercontent.com/2920259/99256361-a1b29300-2858-11eb-9265-26576af92d66.png"><img alt="image" src="https://user-images.githubusercontent.com/2920259/99256361-a1b29300-2858-11eb-9265-26576af92d66.png" /></a></p>
+<p><a href="https://user-images.githubusercontent.com/2920259/99256912-7e3c1800-2859-11eb-810f-1c5c4f4f0fd0.png"><img alt="image" src="https://user-images.githubusercontent.com/2920259/99256912-7e3c1800-2859-11eb-810f-1c5c4f4f0fd0.png" /></a></p>
 <p>実際には、コンテナイメージごとのドキュメントに、具体的な変更方法（設定できる環境変数や置き換えるべきファイルのパス）が記載されている場合がほとんどです。</p>
 <p>自分でコンテナイメージをビルドしなくても、既存のコンテナイメージをうまくカスタマイズすれば、さまざまなことが実現できます。</p>
                 

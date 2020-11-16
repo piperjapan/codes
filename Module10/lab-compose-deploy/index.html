@@ -652,6 +652,8 @@
                 
                 <h1 id="docker-compose-lab">Docker Compose Lab： 使ってみる<a class="headerlink" href="#docker-compose-lab" title="Permanent link">&para;</a></h1>
 <p>このラボでは、実際に Docker Compose を使ってみます。</p>
+<p><a href="https://user-images.githubusercontent.com/2920259/99257462-687b2280-285a-11eb-8571-e7c7f12676df.png"><img alt="image" src="https://user-images.githubusercontent.com/2920259/99257462-687b2280-285a-11eb-8571-e7c7f12676df.png" /></a></p>
+<p>事前に用意したサンプルの構成ファイル（①）を元にデプロイ（②）し、アクセスを確認（③）します。</p>
 <h2 id="_1">準備<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>このラボでは、<code>lab-compose-deploy</code> ディレクトリを利用します。</p>
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span> ~/Piper-for-Partner-2020/Module10/lab-compose-deploy
@@ -733,7 +735,14 @@ OpenSSL version: OpenSSL <span class="m">1</span>.1.1g  <span class="m">21</span
 <p>Docker Compose を使って環境を起動するには、<code>docker-compose.yml</code> のあるディレクトリで、次のコマンドを実行します。</p>
 <div class="highlight"><pre><span></span><code>docker-compose up -d
 </code></pre></div>
-<p><code>docker</code> コマンドとよく似ていて、<code>-d</code> はデタッチドモードを意味します。出力結果からは、ネットワークとボリューム、コンテナが自動で作成されたことが読み取れます。</p>
+<p><code>docker</code> コマンドとよく似ていて、<code>-d</code> はデタッチドモードを意味します。</p>
+<p><a href="https://user-images.githubusercontent.com/2920259/99257462-687b2280-285a-11eb-8571-e7c7f12676df.png"><img alt="image" src="https://user-images.githubusercontent.com/2920259/99257462-687b2280-285a-11eb-8571-e7c7f12676df.png" /></a></p>
+<p><code>docker-compose</code> コマンドは、コマンドを実行したディレクトリの <code>docker-compose.yml</code> を探して利用します（異なるファイル名や別のディレクトリのファイルを使いたい場合は <code>-f</code> で指定できます）。従って今回は、事前に取得した <code>docker-compose.yml</code>（①）が使われました。</p>
+<p>コマンドの出力結果からは、Compose ファイルに従って、ネットワークやボリュームやコンテナがデプロイ（②）されたことがわかります。コンテナには、Compose ファイル通りのボリュームのマウントや環境変数、ポートの設定が適用されています。</p>
+<div class="admonition note">
+<p class="admonition-title">ネットワークの記述</p>
+<p>Compose ファイルにはネットワークの構成を記載しませんでした。繰り返しになりますが、Compose ファイルを使って環境を起動すれば、自動でその環境専用のネットワークが作成され接続されるため、凝った構成にしない場合は、書かなくても問題ありません。もちろん、意図的に記述しても大丈夫です。記述すれば、より複雑な構成も定義できます。</p>
+</div>
 <p>Docker Compose は、あくまで <strong>Docker 上に Compose ファイルに従って環境を構成する</strong> ツールのため、作られたリソースはおなじみの <code>docker</code> コマンドで確認できます。それぞれ、<code>&lt;ディレクトリ名&gt;_&lt;リソース名&gt;</code> の命名規則で作成されていることがわかります。ディレクトリ名が自動で付与されるのは、複数の Compose ファイルで複数のアプリケーションを立ち上げたときに、名前の競合を防ぐためのものです。</p>
 <div class="highlight"><pre><span></span><code>docker ps -a
 docker volume ls
@@ -742,7 +751,7 @@ docker network ls
 <p><code>docker-compose</code> コマンドでも、起動状態は確認できます。</p>
 <div class="highlight"><pre><span></span><code>docker-compose ps
 </code></pre></div>
-<p>ブラウザでアプリケーションの動作を確認します。カウンタをインクリメントさせてみましょう。これまで通り、動作しているはずです（ブラウザのキャッシュが残っていると、背景画像が正しくない場合があります。必要に応じて <code>[Shift] + [F5]</code> でスーパーリロードしてください）。</p>
+<p>ブラウザでアプリケーションの動作を確認（③）します。カウンタをインクリメントさせてみましょう。これまで通り、動作しているはずです（ブラウザのキャッシュが残っていると、背景画像が正しくない場合があります。必要に応じて <code>[Shift] + [F5]</code> でスーパーリロードしてください）。</p>
 <p><a href="https://user-images.githubusercontent.com/2920259/98826090-a18d4e80-2478-11eb-8f72-cd7f6cc6b05c.png"><img alt="image" src="https://user-images.githubusercontent.com/2920259/98826090-a18d4e80-2478-11eb-8f72-cd7f6cc6b05c.png" /></a></p>
 <h3 id="_3">あるべき状態への収束<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <p>コンテナオーケストレーションの説明の中で、次のように記述しました。</p>

@@ -613,6 +613,7 @@
 <h2 id="_1">コンテナイメージとシェル<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>コンテナは、OS 上で論理的に分離された空間です。プロセスもファイルシステムも、コンテナの中にはコンテナの中だけの世界が広がっています。</p>
 <p>利用しているコンテナイメージがシェルのバイナリ（<code>/bin/bash</code> や <code>/bin/sh</code>、<code>/bin/ash</code>）を持っていれば、Docker を介してコンテナの中のシェルを操作できます。</p>
+<p><a href="https://user-images.githubusercontent.com/2920259/99256546-e9391f00-2858-11eb-9be6-a5b2930bccde.png"><img alt="image" src="https://user-images.githubusercontent.com/2920259/99256546-e9391f00-2858-11eb-9be6-a5b2930bccde.png" /></a></p>
 <h3 id="_2">シェルへのアクセス<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <p>まずは <code>p4app</code> を起動させます。</p>
 <div class="highlight"><pre><span></span><code>docker run -d --name p4app -p <span class="m">80</span>:8080 kurokobo/p4app:0.0.1
@@ -654,7 +655,9 @@ docker ps -a
 </code></pre></div>
 <p>このように、コンテナは一時的なサンドボックスとしても非常に有用です。</p>
 <h2 id="_4">ここまででできたこと<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<p>コンテナのシェルにアクセスする方法を実践しました。シェルへのアクセスは、次のようなシーンなどで非常に有用です。</p>
+<p>コンテナのシェルにアクセスする方法を実践しました。</p>
+<p><a href="https://user-images.githubusercontent.com/2920259/99256546-e9391f00-2858-11eb-9be6-a5b2930bccde.png"><img alt="image" src="https://user-images.githubusercontent.com/2920259/99256546-e9391f00-2858-11eb-9be6-a5b2930bccde.png" /></a></p>
+<p>シェルへのアクセスは、次のようなシーンなどで非常に有用です。</p>
 <ul>
 <li>トラブルシュート。コンテナが意図したとおりに動かないときに、内部の状態を調べる</li>
 <li>Dockerfile を作るための準備。例えば <code>dockerfile</code> に書くべき <code>RUN</code> をトライアンドエラーで探る</li>
