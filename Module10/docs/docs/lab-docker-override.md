@@ -13,6 +13,8 @@
 
 ## 環境変数による設定の変更
 
+[![image](https://user-images.githubusercontent.com/2920259/99256361-a1b29300-2858-11eb-9265-26576af92d66.png)](https://user-images.githubusercontent.com/2920259/99256361-a1b29300-2858-11eb-9265-26576af92d66.png)
+
 今回使っている `p4app` では、次の項目を環境変数で制御できるようにしています。
 
 | 環境変数 | 意味 | デフォルト値 |
@@ -53,6 +55,8 @@ docker ps -a
 
 ## 設定ファイルの置き換えによる設定の変更
 
+[![image](https://user-images.githubusercontent.com/2920259/99256912-7e3c1800-2859-11eb-810f-1c5c4f4f0fd0.png)](https://user-images.githubusercontent.com/2920259/99256912-7e3c1800-2859-11eb-810f-1c5c4f4f0fd0.png)
+
 環境変数による設定変更に対応していない場合も、**バインドマウント** をうまく使うとコンテナ外から設定を注入できます。具体的には、**コンテナ内の設定ファイルを任意のモノに置き換えてしまう** ことで実現します。
 
 残念ながら、`p4app` のコンテナイメージには、作りが簡単すぎて設定ファイルが含まれていませんので、単純化して **背景画像を差し替える** ことを目論みます。ここでは例として、カレントディレクトリの `img/new-bg.jpg` に差し替えてみましょう。
@@ -89,6 +93,10 @@ docker ps -a
 ## ここまででできたこと
 
 同じコンテナイメージを使う場合でも、環境に合わせて何らかの設定変更は必要で、このラボでは実際の変更方法を二種類実践しました。
+
+[![image](https://user-images.githubusercontent.com/2920259/99256361-a1b29300-2858-11eb-9265-26576af92d66.png)](https://user-images.githubusercontent.com/2920259/99256361-a1b29300-2858-11eb-9265-26576af92d66.png)
+
+[![image](https://user-images.githubusercontent.com/2920259/99256912-7e3c1800-2859-11eb-810f-1c5c4f4f0fd0.png)](https://user-images.githubusercontent.com/2920259/99256912-7e3c1800-2859-11eb-810f-1c5c4f4f0fd0.png)
 
 実際には、コンテナイメージごとのドキュメントに、具体的な変更方法（設定できる環境変数や置き換えるべきファイルのパス）が記載されている場合がほとんどです。
 

@@ -9,6 +9,8 @@
 
 利用しているコンテナイメージがシェルのバイナリ（`/bin/bash` や `/bin/sh`、`/bin/ash`）を持っていれば、Docker を介してコンテナの中のシェルを操作できます。
 
+[![image](https://user-images.githubusercontent.com/2920259/99256546-e9391f00-2858-11eb-9be6-a5b2930bccde.png)](https://user-images.githubusercontent.com/2920259/99256546-e9391f00-2858-11eb-9be6-a5b2930bccde.png)
+
 
 ### シェルへのアクセス
 
@@ -82,7 +84,11 @@ docker ps -a
 
 ## ここまででできたこと
 
-コンテナのシェルにアクセスする方法を実践しました。シェルへのアクセスは、次のようなシーンなどで非常に有用です。
+コンテナのシェルにアクセスする方法を実践しました。
+
+[![image](https://user-images.githubusercontent.com/2920259/99256546-e9391f00-2858-11eb-9be6-a5b2930bccde.png)](https://user-images.githubusercontent.com/2920259/99256546-e9391f00-2858-11eb-9be6-a5b2930bccde.png)
+
+シェルへのアクセスは、次のようなシーンなどで非常に有用です。
 
 * トラブルシュート。コンテナが意図したとおりに動かないときに、内部の状態を調べる
 * Dockerfile を作るための準備。例えば `dockerfile` に書くべき `RUN` をトライアンドエラーで探る
