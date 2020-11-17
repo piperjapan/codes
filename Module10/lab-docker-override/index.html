@@ -298,27 +298,34 @@
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    環境変数による設定の変更
+    準備
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    設定ファイルの置き換えによる設定の変更
+    環境変数による設定の変更
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    クリーンアップ
+    設定ファイルの置き換えによる設定の変更
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
+    クリーンアップ
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
     ここまででできたこと
   </a>
   
@@ -569,27 +576,34 @@
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    環境変数による設定の変更
+    準備
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    設定ファイルの置き換えによる設定の変更
+    環境変数による設定の変更
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    クリーンアップ
+    設定ファイルの置き換えによる設定の変更
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
+    クリーンアップ
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
     ここまででできたこと
   </a>
   
@@ -614,7 +628,11 @@
 <p>コンテナの起動後に設定を手で変えればよいかもしれませんが、変更は永続化されないので、コンテナを削除するたびに毎回その変更を手で行う必要があります。設定ファイルのありかを突き止めて、そこだけボリュームをマウントさせれば永続化はできるかもしれませんが、そうはいってもそもそも手作業はなるべく少なくするべきです。</p>
 <p>こうした課題に対する解決策として、ほとんどのコンテナイメージは、<strong>環境変数で設定を変更できる</strong> ように作られています。あるいは、別の手段として、<strong>コンテナ内のファイルをコンテナ外のファイルで置き換える</strong> ことで設定をコントロールできる場合もあります。</p>
 <p>ここでは、この二パタンを簡単に実践してみましょう。</p>
-<h2 id="_1">環境変数による設定の変更<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h2 id="_1">準備<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>このラボでは、<code>lab-docker-override</code> ディレクトリを利用します。</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> ~/Piper-for-Partner-2020/Module10/lab-docker-override
+</code></pre></div>
+<h2 id="_2">環境変数による設定の変更<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p><a href="https://user-images.githubusercontent.com/2920259/99256361-a1b29300-2858-11eb-9265-26576af92d66.png"><img alt="image" src="https://user-images.githubusercontent.com/2920259/99256361-a1b29300-2858-11eb-9265-26576af92d66.png" /></a></p>
 <p>今回使っている <code>p4app</code> では、次の項目を環境変数で制御できるようにしています。</p>
 <table>
@@ -663,7 +681,7 @@
 docker rm -f my-awesome-redis
 docker ps -a
 </code></pre></div>
-<h2 id="_2">設定ファイルの置き換えによる設定の変更<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h2 id="_3">設定ファイルの置き換えによる設定の変更<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p><a href="https://user-images.githubusercontent.com/2920259/99256912-7e3c1800-2859-11eb-810f-1c5c4f4f0fd0.png"><img alt="image" src="https://user-images.githubusercontent.com/2920259/99256912-7e3c1800-2859-11eb-810f-1c5c4f4f0fd0.png" /></a></p>
 <p>環境変数による設定変更に対応していない場合も、<strong>バインドマウント</strong> をうまく使うとコンテナ外から設定を注入できます。具体的には、<strong>コンテナ内の設定ファイルを任意のモノに置き換えてしまう</strong> ことで実現します。</p>
 <p>残念ながら、<code>p4app</code> のコンテナイメージには、作りが簡単すぎて設定ファイルが含まれていませんので、単純化して <strong>背景画像を差し替える</strong> ことを目論みます。ここでは例として、カレントディレクトリの <code>img/new-bg.jpg</code> に差し替えてみましょう。</p>
@@ -675,14 +693,18 @@ docker ps -a
 <p>アプリケーションを開いて、<code>[Shift] + [F5]</code> でスーパーリロード（ブラウザのキャッシュを利用せずに更新）してみましょう。背景が挿し変わったでしょうか？</p>
 <p><a href="https://user-images.githubusercontent.com/2920259/99149394-18bd1f80-26d1-11eb-9ed5-b88885175dfc.png"><img alt="image" src="https://user-images.githubusercontent.com/2920259/99149394-18bd1f80-26d1-11eb-9ed5-b88885175dfc.png" /></a></p>
 <p>今回は画像で実践しましたが、実際には、例えばコンテナ内の <code>*.conf</code> ファイルなどを同様の手法で事前に用意した自前のファイルに置き換えられます。環境変数での変更をサポートしていない範囲も（強引に）書き換えられるため、非常に強力です。</p>
-<h2 id="_3">クリーンアップ<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h2 id="_4">クリーンアップ<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <p>次のラボに備えて、すべてのコンテナとネットワークとボリュームを削除しましょう。</p>
 <div class="highlight"><pre><span></span><code>docker rm -f p4app
 docker network rm p4-network
 docker volume prune
 docker ps -a
 </code></pre></div>
-<h2 id="_4">ここまででできたこと<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<div class="admonition note">
+<p class="admonition-title"><code>volume prune</code></p>
+<p>停止中のものを含め、存在するどのコンテナからも使われていないボリュームをすべて削除するコマンドです。</p>
+</div>
+<h2 id="_5">ここまででできたこと<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <p>同じコンテナイメージを使う場合でも、環境に合わせて何らかの設定変更は必要で、このラボでは実際の変更方法を二種類実践しました。</p>
 <p><a href="https://user-images.githubusercontent.com/2920259/99256361-a1b29300-2858-11eb-9265-26576af92d66.png"><img alt="image" src="https://user-images.githubusercontent.com/2920259/99256361-a1b29300-2858-11eb-9265-26576af92d66.png" /></a></p>
 <p><a href="https://user-images.githubusercontent.com/2920259/99256912-7e3c1800-2859-11eb-810f-1c5c4f4f0fd0.png"><img alt="image" src="https://user-images.githubusercontent.com/2920259/99256912-7e3c1800-2859-11eb-810f-1c5c4f4f0fd0.png" /></a></p>

@@ -741,7 +741,7 @@ kubectl get service -o yaml
 <p>Cloud Shell Editor でなく、<code>vi</code> も利用できます。</p>
 </div>
 <h3 id="_5">マニフェストの利用<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
-<p>編集した YAML ファイルを使ったデプロイを試すため、現在稼働しているリソースを削除します。</p>
+<p>編集した YAML ファイル、すなわち Deployment のマニフェストを使ったデプロイを試すため、現在稼働している Deployment を削除します。</p>
 <div class="highlight"><pre><span></span><code>kubectl delete deployment p4app
 kubectl delete deployment redis
 kubectl get all
@@ -850,7 +850,7 @@ kubectl get all
 <p>コマンドで手作りした環境を元にマニフェストを作成することももちろんありますが、その場合でも、実際の運用に持ち込むためには、不要な行を削除したりファイルの分け方を工夫したりして、ファイルをシンプルに保つ工夫をする場合がほとんどです。</p>
 <h3 id="_8">サンプルマニフェストの利用<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
 <p>実際に使ってみましょう。</p>
-<p>まずは、すべての環境を削除します。</p>
+<p>まずは、すべての環境を削除します。サンプルマニフェストは Service も含んでいるため、Service もすべて削除します。</p>
 <div class="highlight"><pre><span></span><code>kubectl delete deployments --all
 kubectl delete services --all
 kubectl get all

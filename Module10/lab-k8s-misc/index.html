@@ -488,6 +488,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    シェルの利用やコマンドの実行
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#helm" class="md-nav__link">
     Helm によるさらなる活用
   </a>
@@ -561,6 +568,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    シェルの利用やコマンドの実行
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#helm" class="md-nav__link">
     Helm によるさらなる活用
   </a>
@@ -588,6 +602,15 @@
 <p>ストレージには NFS など一般的な共有ファイルシステムも利用できますし、ストレージ側でインテグレーションの機能（CSI）を持っていれば、Kubernetes からストレージのネイティブのボリューム作成機能などとも連携可能です。</p>
 <p>また、パブリッククラウド上で Kubernetes クラスタを構成した場合は、そのパブリッククラウドの別のストレージサービスを Kubernetes の永続ボリューム領域として使える場合がほとんどです。</p>
 <p>興味があれば調べてみるとよいでしょう。</p>
+<h2 id="_2">シェルの利用やコマンドの実行<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>Docker コンテナと同様、Kubernetes でも Pod（の中のコンテナ）のシェルにアクセスできます。もちろん、コンテナ内にシェルのバイナリがある必要がありますし、必ずしも <code>bash</code> ではなく、<code>sh</code> や <code>ash</code> など別のシェルである可能性もあります。また、任意のコマンドも実行可能です。</p>
+<div class="highlight"><pre><span></span><code>kubectl <span class="nb">exec</span> -it &lt;Pod 名&gt; bash
+kubectl <span class="nb">exec</span> &lt;Pod 名&gt; env
+</code></pre></div>
+<p>単一の Pod に複数のコンテナが存在している場合は、<code>-c</code> でコンテナの指定を追加します。</p>
+<div class="highlight"><pre><span></span><code>kubectl <span class="nb">exec</span> -it &lt;Pod 名&gt; -c &lt;コンテナ名&gt; bash
+kubectl <span class="nb">exec</span> &lt;Pod 名&gt; -c &lt;コンテナ名&gt; env
+</code></pre></div>
 <h2 id="helm">Helm によるさらなる活用<a class="headerlink" href="#helm" title="Permanent link">&para;</a></h2>
 <p><strong>Helm</strong> を利用すると、マニフェストすら作らずに簡単に Kubernetes 上に完全に機能するアプリケーションを展開できます。</p>
 <p>イメージでいうと、<strong><code>apt</code> や <code>yum</code>（<code>dnf</code>）でパッケージをインストールするのに近しい操作感</strong>です。Helm Hub などで既成パッケージが多数公開されていますので、興味があればこちらも調べてみるとよいでしょう。</p>

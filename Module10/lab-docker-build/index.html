@@ -352,21 +352,35 @@
       
         <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
-    コンテナイメージの公開
+    クリーンアップ
   </a>
   
-    <nav class="md-nav" aria-label="コンテナイメージの公開">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    ここまででできたこと
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    コンテナイメージの公開（参考）
+  </a>
+  
+    <nav class="md-nav" aria-label="コンテナイメージの公開（参考）">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     タグ付け
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     ログインとプッシュ
   </a>
   
@@ -378,22 +392,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    カスタマイズ方法のいろいろ
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
-    クリーンアップ
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#_11" class="md-nav__link">
-    ここまででできたこと
+    様々なカスタマイズ方法（参考）
   </a>
   
 </li>
@@ -673,21 +673,35 @@
       
         <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
-    コンテナイメージの公開
+    クリーンアップ
   </a>
   
-    <nav class="md-nav" aria-label="コンテナイメージの公開">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    ここまででできたこと
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    コンテナイメージの公開（参考）
+  </a>
+  
+    <nav class="md-nav" aria-label="コンテナイメージの公開（参考）">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     タグ付け
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     ログインとプッシュ
   </a>
   
@@ -699,22 +713,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    カスタマイズ方法のいろいろ
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
-    クリーンアップ
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#_11" class="md-nav__link">
-    ここまででできたこと
+    様々なカスタマイズ方法（参考）
   </a>
   
 </li>
@@ -790,11 +790,13 @@ cat Dockerfile
 </code></pre></div>
 <h2 id="_4">ビルドしたイメージの起動<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <p>イメージができてしまえば、あとは前のラボと何ら変わりはありません。<code>docker run</code> で自分のイメージを指定すれば起動します。</p>
-<div class="highlight"><pre><span></span><code>docker run -p <span class="m">80</span>:8080 my-first-container:0.0.1
+<div class="highlight"><pre><span></span><code>docker run -d --name my-first-container -p <span class="m">80</span>:8080 my-first-container:0.0.1
 </code></pre></div>
+<p>アプリケーションを開けることを確認します。背景画像が前のラボのままの場合は、<code>[Shift] + [F5]</code> でスーパーリロード（ブラウザのキャッシュを利用せずに更新）してみましょう。</p>
 <p><a href="https://user-images.githubusercontent.com/2920259/98807222-ad1f4c00-245d-11eb-8537-4f9815477fbd.png"><img alt="image" src="https://user-images.githubusercontent.com/2920259/98807222-ad1f4c00-245d-11eb-8537-4f9815477fbd.png" /></a></p>
-<p>確認できたら、コンテナを削除しましょう。</p>
+<p>確認できたら、コンテナを削除します。</p>
 <div class="highlight"><pre><span></span><code>docker rm -f my-first-container
+docker ps -a
 </code></pre></div>
 <h2 id="_5">少しだけカスタマイズ<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <p>前のラボとまったく同じ見た目なので、自分ならではのコンテナイメージにカスタマイズしてみましょう。</p>
@@ -809,11 +811,37 @@ cat Dockerfile
 docker images
 </code></pre></div>
 <p>イメージができたら、起動させてみます。</p>
-<div class="highlight"><pre><span></span><code>docker run -p <span class="m">80</span>:8080 my-first-container:0.0.2
+<div class="highlight"><pre><span></span><code>docker run -d --name my-first-container -p <span class="m">80</span>:8080 my-first-container:0.0.2
 </code></pre></div>
-<p>背景やメッセージがうまく書き換わったでしょうか？ できていれば、成功です！</p>
+<p>背景やメッセージがうまく書き換わったでしょうか？ できていれば、成功です！ 背景画像が変わっていない場合は、<code>[Shift] + [F5]</code> でスーパーリロードを試してください。</p>
 <p><a href="https://user-images.githubusercontent.com/2920259/99151150-8e7ab880-26dc-11eb-9511-0439a02d3e91.png"><img alt="image" src="https://user-images.githubusercontent.com/2920259/99151150-8e7ab880-26dc-11eb-9511-0439a02d3e91.png" /></a></p>
-<h2 id="_6">コンテナイメージの公開<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<h2 id="_6">クリーンアップ<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<p>次のラボに備えて、すべてのコンテナを削除しましょう。ネットワークとボリュームも、残っている場合は削除します。</p>
+<div class="highlight"><pre><span></span><code>docker rm -f my-first-container
+docker ps -a
+docker network rm p4-network
+docker network ls
+docker volume prune
+docker volume ls
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title"><code>volume prune</code></p>
+<p>停止中のものを含め、存在するどのコンテナからも使われていないボリュームをすべて削除するコマンドです。</p>
+</div>
+<p>ローカルに保存されているイメージは、<code>rmi</code> コマンドで削除できます。</p>
+<div class="highlight"><pre><span></span><code>docker rmi my-first-container:0.0.1
+docker rmi my-first-container:0.0.2
+docker images
+</code></pre></div>
+<h2 id="_7">ここまででできたこと<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<p><a href="https://user-images.githubusercontent.com/2920259/99185251-ede3d180-278b-11eb-896b-c9f0b6ce10bb.png"><img alt="image" src="https://user-images.githubusercontent.com/2920259/99185251-ede3d180-278b-11eb-896b-c9f0b6ce10bb.png" /></a></p>
+<p>コマンドで、カレントディレクトリの Dockerfile からのビルド（①）を指示できました。Dockerfile を目的に応じて記述することで、<code>FROM</code> で指定されたベースイメージを元（②、③）に、任意のファイルや設定を封入（④）できることを学習しました。。</p>
+<p>さらに、作成したコンテナイメージをレジストリに登録すると、世界のどこからでもプルできるようになり、利用の幅が非常に広がります。</p>
+<h2 id="_8">コンテナイメージの公開（参考）<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<div class="admonition tip">
+<p class="admonition-title">実施不要</p>
+<p>このセクションは、参考として紹介しています。<strong>手順の実施は不要</strong> です。</p>
+</div>
 <p>できあがったイメージは、コンテナレジストリにプッシュすることで、世界中のどこからでも利用できるようになります。他人に使ってもらうだけでなく、自分がほかの Docker ホストや Kubernetes から利用できるようにもなり、非常に便利です。</p>
 <div class="admonition warning">
 <p class="admonition-title">機微情報やライセンスに注意</p>
@@ -821,7 +849,7 @@ docker images
 </div>
 <p>コンテナレジストリにもいくつものサービスがあり、おなじみの Docker Hub だけでなく、GitHub も GitHub Container Registry（<code>ghcr.io</code>）を提供しています。各パブリッククラウドも、それぞれのコンテナレジストリを提供しています。また、オンプレミス環境などでプライベートなコンテナレジストリ自体を構築できる製品も存在しています。</p>
 <p>もっとも手軽に利用できるコンテナレジストリは、おなじみの Docker Hub です。アカウントの作成が必要で、すぐには試せないと思いますので、ここでは簡単に手順だけ紹介します。</p>
-<h3 id="_7">タグ付け<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<h3 id="_9">タグ付け<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
 <p>どのコンテナレジストリでも、まずはタグの付け方が重要です。正しくタグが付けられていないと、公開できません。</p>
 <ul>
 <li>Docker Hub にプッシュする場合<ul>
@@ -843,8 +871,9 @@ docker images
 </ul>
 <p>ビルド時に <code>-t</code> で上記に従ってタグ付けするか、もしくは既存のイメージに以下のようにして別のタグを追加できます。</p>
 <div class="highlight"><pre><span></span><code>docker tag my-first-container:0.0.2 example/p4app:0.0.2
+docker images
 </code></pre></div>
-<h3 id="_8">ログインとプッシュ<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<h3 id="_10">ログインとプッシュ<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
 <p>コンテナイメージの準備ができたら、<code>login</code> コマンドでユーザ名とパスワードを入力して Docker Hub のアカウントにログインします。</p>
 <div class="highlight"><pre><span></span><code>docker login
 </code></pre></div>
@@ -871,7 +900,11 @@ docker images
 <p class="admonition-title">プライベートリポジトリ</p>
 <p>Docker Hub でも、プライベートリポジトリを作成でき、それを利用すれば自分が許可したひとしか利用できないコンテナイメージも作成できます。この場合、コンテナイメージは秘匿される一方で、Pull するためにも認証が必要になるため、例えば Kubernetes 上で利用したい場合などに追加の認証情報の構成が必要になります。</p>
 </div>
-<h2 id="_9">カスタマイズ方法のいろいろ<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<h2 id="_11">様々なカスタマイズ方法（参考）<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
+<div class="admonition tip">
+<p class="admonition-title">実施不要</p>
+<p>このセクションは、参考として紹介しています。<strong>手順の実施は不要</strong> です。</p>
+</div>
 <p>Dockerfile のベースイメージには、任意のコンテナイメージを指定できます。</p>
 <p>このラボでは、既存の <code>p4app</code> をカスタマイズする際に、<code>app.py</code> や <code>bg.jpg</code> を変更してから元の Dockerfile をそのまま使いましたが、この方法は、元の <code>p4app</code> のビルドに必要なすべてのファイルが手元にあるからこそできたものでした。</p>
 <p>別解として、</p>
@@ -886,20 +919,6 @@ docker images
 <span class="k">ADD</span> bg.jpg /app/static/img
 </code></pre></div>
 <p>この方法には、Dockerfile の中身がシンプルにでき、元のイメージの Dockerfile の内容を知らなくてもカスタマイズできたり、元のイメージのバージョンアップにも追従しやすいなどメリットがある一方で、できあがるイメージのサイズが大きくなりがちな点がデメリットとして挙げられます。適宜使い分けるとよいでしょう。</p>
-<h2 id="_10">クリーンアップ<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
-<p>次のラボに備えて、すべてのコンテナとネットワークとボリュームを削除しましょう。</p>
-<div class="highlight"><pre><span></span><code>docker rm -f my-first-container
-docker ps -a
-</code></pre></div>
-<p>ローカルに保存されているイメージは、<code>rmi</code> コマンドで削除できます。</p>
-<div class="highlight"><pre><span></span><code>docker rmi my-first-container:0.0.1
-docker rmi my-first-container:0.0.2
-docker images
-</code></pre></div>
-<h2 id="_11">ここまででできたこと<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
-<p><a href="https://user-images.githubusercontent.com/2920259/99185251-ede3d180-278b-11eb-896b-c9f0b6ce10bb.png"><img alt="image" src="https://user-images.githubusercontent.com/2920259/99185251-ede3d180-278b-11eb-896b-c9f0b6ce10bb.png" /></a></p>
-<p>コマンドで、カレントディレクトリの Dockerfile からのビルド（①）を指示できました。Dockerfile を目的に応じて記述することで、<code>FROM</code> で指定されたベースイメージを元（②、③）に、任意のファイルや設定を封入（④）できることを学習しました。。</p>
-<p>さらに、作成したコンテナイメージをレジストリに登録すると、世界のどこからでもプルできるようになり、利用の幅が非常に広がります。</p>
                 
               
               

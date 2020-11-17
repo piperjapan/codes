@@ -745,7 +745,8 @@ OpenSSL version: OpenSSL <span class="m">1</span>.1.1g  <span class="m">21</span
 </code></pre></div>
 <h3 id="_2">起動と確認<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <p>Docker Compose を使って環境を起動するには、<code>docker-compose.yml</code> のあるディレクトリで、次のコマンドを実行します。</p>
-<div class="highlight"><pre><span></span><code>docker-compose up -d
+<div class="highlight"><pre><span></span><code>ls -l
+docker-compose up -d
 </code></pre></div>
 <p><code>docker</code> コマンドとよく似ていて、<code>-d</code> はデタッチドモードを意味します。</p>
 <p><a href="https://user-images.githubusercontent.com/2920259/99257462-687b2280-285a-11eb-8571-e7c7f12676df.png"><img alt="image" src="https://user-images.githubusercontent.com/2920259/99257462-687b2280-285a-11eb-8571-e7c7f12676df.png" /></a></p>
@@ -772,7 +773,7 @@ docker network ls
 </blockquote>
 <p>つまり、人間は今の状態を気にせずに <code>docker-compose up -d</code> しさえすれば、勝手に Compose ファイルに記述した状態にまでもっていってくれるということです。</p>
 <p>これを試すため、（通常あえて行う必要はありませんが）Docker Compose で作成されたコンテナのうち一つを手動で削除し、その後、<code>docker-compose up -d</code> を再実行してみましょう。</p>
-<div class="highlight"><pre><span></span><code>docker rm -f lab-docker-compose_p4app_1
+<div class="highlight"><pre><span></span><code>docker rm -f lab-compose-deploy_p4app_1
 docker-compose up -d
 </code></pre></div>
 <p><code>docker-compose</code> コマンドの出力で、手で無理やり消した <code>p4app</code> だけが追加で起動されたことがわかります。このように、<strong>いわゆる構築手順とは異なり、現状からの差分を人間が考える必要はない</strong> 状態ができています。</p>

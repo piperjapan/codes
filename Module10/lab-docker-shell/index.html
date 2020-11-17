@@ -354,6 +354,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    コマンドの実行（参考）
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -607,6 +614,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    コマンドの実行（参考）
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -660,7 +674,7 @@ cat /etc/os-release
 dnf install -y python38
 python3 -c <span class="s1">&#39;print(&quot;hello world&quot;)&#39;</span>
 </code></pre></div>
-<p>コンテナなのでそのものではない（例えば <code>systemd</code> は利用されていません）が、論理的には CentOS とほぼ同等の空間ができあがっています。</p>
+<p>コンテナなのでそのものではない（例えば <code>systemd</code> は起動されていませんし、プロセスも全然ありません）が、論理的には CentOS とほぼ同等の空間ができあがっています。</p>
 <p><code>exit</code> すると終了します。起動時に <code>--rm</code> を付けていたので、コンテナは残りません。</p>
 <div class="highlight"><pre><span></span><code><span class="nb">exit</span>
 docker ps -a
@@ -681,6 +695,19 @@ docker ps -a
 <p>このため、イメージによっては、一切のシェルを含んでいない場合があり、その場合は当然ながらシェルを使った操作はできません。</p>
 <p>また、イメージによっては、<code>bash</code> がなく、代わりに <code>sh</code> や <code>ash</code> が用意されている場合もあります。</p>
 </div>
+<h2 id="_5">コマンドの実行（参考）<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>実際には、シェルに限らずコンテナ内の任意のコマンドを実行できます（というより、任意のコマンドを実行させる方法を使ってシェルを起動させてている、という表現の方が正確です）。</p>
+<p>起動済みのコンテナに対して実行すれば、ファイルの存在や環境変数を確認するために非常に便利です。データベースのコンテナにワンライナでクエリを渡す目的などでも利用できます。</p>
+<div class="highlight"><pre><span></span><code>docker run -d --name p4app -e SAMPLE_VALUE=hoge -p 80:8080 kurokobo/p4app:0.0.1
+docker exec p4app ls -l
+docker exec p4app env
+docker rm -f p4app
+</code></pre></div>
+<p>このほか、<code>--rm</code> と組み合わせると、コンテナイメージ内のバイナリをオンデマンドで実行でき、（初回はプルが走りはするものの二回目以降は）ローカルでコマンドを直接実行するのに近しい操作感が得られます。さらにシェルの <code>alias</code> と組み合わせるとより便利です。</p>
+<div class="highlight"><pre><span></span><code>docker run --rm docker/whalesay cowsay &#39;Hello, Piper!&#39;
+alias whalesay=&#39;docker run --rm docker/whalesay cowsay&#39;
+whalesay &#39;Hello, Piper!&#39;
+</code></pre></div>
                 
               
               
