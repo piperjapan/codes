@@ -96,15 +96,18 @@ docker images
 イメージができてしまえば、あとは前のラボと何ら変わりはありません。`docker run` で自分のイメージを指定すれば起動します。
 
 ```bash
-docker run -p 80:8080 my-first-container:0.0.1
+docker run -d --name my-first-container -p 80:8080 my-first-container:0.0.1
 ```
+
+アプリケーションを開けることを確認します。背景画像が前のラボのままの場合は、`[Shift] + [F5]` でスーパーリロード（ブラウザのキャッシュを利用せずに更新）してみましょう。
 
 [![image](https://user-images.githubusercontent.com/2920259/98807222-ad1f4c00-245d-11eb-8537-4f9815477fbd.png)](https://user-images.githubusercontent.com/2920259/98807222-ad1f4c00-245d-11eb-8537-4f9815477fbd.png)
 
-確認できたら、コンテナを削除しましょう。
+確認できたら、コンテナを削除します。
 
 ```bash
 docker rm -f my-first-container
+docker ps -a
 ```
 
 
@@ -134,15 +137,52 @@ docker images
 イメージができたら、起動させてみます。
 
 ```bash
-docker run -p 80:8080 my-first-container:0.0.2
+docker run -d --name my-first-container -p 80:8080 my-first-container:0.0.2
 ```
 
-背景やメッセージがうまく書き換わったでしょうか？ できていれば、成功です！
+背景やメッセージがうまく書き換わったでしょうか？ できていれば、成功です！ 背景画像が変わっていない場合は、`[Shift] + [F5]` でスーパーリロードを試してください。
 
 [![image](https://user-images.githubusercontent.com/2920259/99151150-8e7ab880-26dc-11eb-9511-0439a02d3e91.png)](https://user-images.githubusercontent.com/2920259/99151150-8e7ab880-26dc-11eb-9511-0439a02d3e91.png)
 
 
-## コンテナイメージの公開
+## クリーンアップ
+
+次のラボに備えて、すべてのコンテナを削除しましょう。ネットワークとボリュームも、残っている場合は削除します。
+
+```bash
+docker rm -f my-first-container
+docker ps -a
+docker network rm p4-network
+docker network ls
+docker volume prune
+docker volume ls
+```
+
+!!! note "`volume prune`"
+    停止中のものを含め、存在するどのコンテナからも使われていないボリュームをすべて削除するコマンドです。
+
+ローカルに保存されているイメージは、`rmi` コマンドで削除できます。
+
+```bash
+docker rmi my-first-container:0.0.1
+docker rmi my-first-container:0.0.2
+docker images
+```
+
+
+## ここまででできたこと
+
+[![image](https://user-images.githubusercontent.com/2920259/99185251-ede3d180-278b-11eb-896b-c9f0b6ce10bb.png)](https://user-images.githubusercontent.com/2920259/99185251-ede3d180-278b-11eb-896b-c9f0b6ce10bb.png)
+
+コマンドで、カレントディレクトリの Dockerfile からのビルド（①）を指示できました。Dockerfile を目的に応じて記述することで、`FROM` で指定されたベースイメージを元（②、③）に、任意のファイルや設定を封入（④）できることを学習しました。。
+
+さらに、作成したコンテナイメージをレジストリに登録すると、世界のどこからでもプルできるようになり、利用の幅が非常に広がります。
+
+
+## コンテナイメージの公開（参考）
+
+!!! tip "実施不要"
+    このセクションは、参考として紹介しています。**手順の実施は不要** です。
 
 できあがったイメージは、コンテナレジストリにプッシュすることで、世界中のどこからでも利用できるようになります。他人に使ってもらうだけでなく、自分がほかの Docker ホストや Kubernetes から利用できるようにもなり、非常に便利です。
 
@@ -171,7 +211,9 @@ docker run -p 80:8080 my-first-container:0.0.2
 
 ```bash
 docker tag my-first-container:0.0.2 example/p4app:0.0.2
+docker images
 ```
+
 
 ### ログインとプッシュ
 
@@ -208,7 +250,10 @@ docker push example/p4app:0.0.2
     Docker Hub でも、プライベートリポジトリを作成でき、それを利用すれば自分が許可したひとしか利用できないコンテナイメージも作成できます。この場合、コンテナイメージは秘匿される一方で、Pull するためにも認証が必要になるため、例えば Kubernetes 上で利用したい場合などに追加の認証情報の構成が必要になります。
 
 
-## カスタマイズ方法のいろいろ
+## 様々なカスタマイズ方法（参考）
+
+!!! tip "実施不要"
+    このセクションは、参考として紹介しています。**手順の実施は不要** です。
 
 Dockerfile のベースイメージには、任意のコンテナイメージを指定できます。
 
@@ -229,30 +274,3 @@ ADD bg.jpg /app/static/img
 ```
 
 この方法には、Dockerfile の中身がシンプルにでき、元のイメージの Dockerfile の内容を知らなくてもカスタマイズできたり、元のイメージのバージョンアップにも追従しやすいなどメリットがある一方で、できあがるイメージのサイズが大きくなりがちな点がデメリットとして挙げられます。適宜使い分けるとよいでしょう。
-
-
-## クリーンアップ
-
-次のラボに備えて、すべてのコンテナとネットワークとボリュームを削除しましょう。
-
-```bash
-docker rm -f my-first-container
-docker ps -a
-```
-
-ローカルに保存されているイメージは、`rmi` コマンドで削除できます。
-
-```bash
-docker rmi my-first-container:0.0.1
-docker rmi my-first-container:0.0.2
-docker images
-```
-
-
-## ここまででできたこと
-
-[![image](https://user-images.githubusercontent.com/2920259/99185251-ede3d180-278b-11eb-896b-c9f0b6ce10bb.png)](https://user-images.githubusercontent.com/2920259/99185251-ede3d180-278b-11eb-896b-c9f0b6ce10bb.png)
-
-コマンドで、カレントディレクトリの Dockerfile からのビルド（①）を指示できました。Dockerfile を目的に応じて記述することで、`FROM` で指定されたベースイメージを元（②、③）に、任意のファイルや設定を封入（④）できることを学習しました。。
-
-さらに、作成したコンテナイメージをレジストリに登録すると、世界のどこからでもプルできるようになり、利用の幅が非常に広がります。

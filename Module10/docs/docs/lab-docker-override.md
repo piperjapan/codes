@@ -11,6 +11,15 @@
 ここでは、この二パタンを簡単に実践してみましょう。
 
 
+## 準備
+
+このラボでは、`lab-docker-override` ディレクトリを利用します。
+
+```bash
+cd ~/Piper-for-Partner-2020/Module10/lab-docker-override
+```
+
+
 ## 環境変数による設定の変更
 
 [![image](https://user-images.githubusercontent.com/2920259/99256361-a1b29300-2858-11eb-9265-26576af92d66.png)](https://user-images.githubusercontent.com/2920259/99256361-a1b29300-2858-11eb-9265-26576af92d66.png)
@@ -88,6 +97,9 @@ docker network rm p4-network
 docker volume prune
 docker ps -a
 ```
+
+!!! note "`volume prune`"
+    停止中のものを含め、存在するどのコンテナからも使われていないボリュームをすべて削除するコマンドです。
 
 
 ## ここまででできたこと
