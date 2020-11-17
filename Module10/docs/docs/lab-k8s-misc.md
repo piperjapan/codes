@@ -16,6 +16,23 @@ Kubernetes にも **Persistent Volume** というデータの永続化のため�
 興味があれば調べてみるとよいでしょう。
 
 
+## シェルの利用やコマンドの実行
+
+Docker コンテナと同様、Kubernetes でも Pod（の中のコンテナ）のシェルにアクセスできます。もちろん、コンテナ内にシェルのバイナリがある必要がありますし、必ずしも `bash` ではなく、`sh` や `ash` など別のシェルである可能性もあります。また、任意のコマンドも実行可能です。
+
+```bash
+kubectl exec -it <Pod 名> bash
+kubectl exec <Pod 名> env
+```
+
+単一の Pod に複数のコンテナが存在している場合は、`-c` でコンテナの指定を追加します。
+
+```bash
+kubectl exec -it <Pod 名> -c <コンテナ名> bash
+kubectl exec <Pod 名> -c <コンテナ名> env
+```
+
+
 ## Helm によるさらなる活用
 
 **Helm** を利用すると、マニフェストすら作らずに簡単に Kubernetes 上に完全に機能するアプリケーションを展開できます。

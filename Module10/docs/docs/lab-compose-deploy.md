@@ -114,6 +114,7 @@ OpenSSL version: OpenSSL 1.1.1g  21 Apr 2020
 Docker Compose を使って環境を起動するには、`docker-compose.yml` のあるディレクトリで、次のコマンドを実行します。
 
 ```bash
+ls -l
 docker-compose up -d
 ```
 
@@ -158,7 +159,7 @@ docker-compose ps
 これを試すため、（通常あえて行う必要はありませんが）Docker Compose で作成されたコンテナのうち一つを手動で削除し、その後、`docker-compose up -d` を再実行してみましょう。
 
 ```bash
-docker rm -f lab-docker-compose_p4app_1
+docker rm -f lab-compose-deploy_p4app_1
 docker-compose up -d
 ```
 

@@ -68,7 +68,7 @@ kubectl get deployments -o yaml > deployments.yaml
 
 ### マニフェストの利用
 
-編集した YAML ファイルを使ったデプロイを試すため、現在稼働しているリソースを削除します。
+編集した YAML ファイル、すなわち Deployment のマニフェストを使ったデプロイを試すため、現在稼働している Deployment を削除します。
 
 ```bash
 kubectl delete deployment p4app
@@ -201,7 +201,7 @@ Deployment と Service が 2 つずつ定義されていることがわかりま
 
 実際に使ってみましょう。
 
-まずは、すべての環境を削除します。
+まずは、すべての環境を削除します。サンプルマニフェストは Service も含んでいるため、Service もすべて削除します。
 
 ```bash
 kubectl delete deployments --all
