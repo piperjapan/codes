@@ -1,1 +1,1 @@
-# This Repository is for "Piper for Partner 2020".
+# This Repository is for "Project Piper Japan".
