@@ -30,10 +30,10 @@ jobs:
       - name: Install dependencies
         run: |
           python3 -m pip install --upgrade pip
-          python3 -m pip install -r ./docs/requirements.txt
+          python3 -m pip install -r ./Module10/docs/requirements.txt
 
       - run: |
-          mkdocs build -f ./docs/mkdocs.yml -d ../site/Module10
+          mkdocs build -f ./Module10/docs/mkdocs.yml -d ../../site/Module10
           ls -lR ./site
 
       - name: Deploy
