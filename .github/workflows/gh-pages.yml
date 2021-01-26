@@ -3,7 +3,9 @@ name: github pages
 on:
   push:
     branches:
-      - main
+      - master
+    paths:
+      - 'Module10/**'
 
 jobs:
   deploy:
@@ -37,6 +39,5 @@ jobs:
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
-          external_repository: momosk-dt/Piper-for-Partner-2020
-          personal_token: ${{ secrets.PERSONAL_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./site
