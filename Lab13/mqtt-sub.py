@@ -7,7 +7,7 @@ import redis
 #broker_address = "127.0.0.1"
 broker_address = "test.mosquitto.org"
 RedisHost = "127.0.0.1"
-Topic = "p4p"
+Topic = "piper-jp"
 
 r = redis.Redis(host=RedisHost, port='6379')
 
@@ -33,3 +33,6 @@ while True:
 #    print("Topic ", Topic)
     client.subscribe(Topic)
     time.sleep(2) # wait
+
+client.loop_stop() #stop the loop
+
