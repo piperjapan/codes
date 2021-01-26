@@ -1,0 +1,20 @@
+version: 0.0
+os: linux
+files:
+  - source: /web
+    destination: /var/www
+  - source: /config
+    destination: /etc/httpd/conf.d
+hooks:
+  BeforeInstall:
+    - location: install-package.sh
+      timeout: 300
+      runas: root
+  ApplicationStart:
+    - location: app-start.sh
+      timeout: 300
+      runas: root
+  ApplicationStop:
+    - location: app-stop.sh
+      timeout: 300
+      runas: root
