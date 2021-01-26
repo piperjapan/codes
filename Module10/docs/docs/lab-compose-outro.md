@@ -14,8 +14,8 @@ Compose ファイルと呼ばれる構成ファイルにすべての構成をあ
 Docker の公式ドキュメントでも、Docker Compose のクイックスタートの例として、
 
 * [Django アプリケーションをビルド・構成する例](https://docs.docker.jp/compose/django.html)
-* [Rails アプリケーションをビルド・構成する例](https://docs.docker.jp/compose/django.html)
-* [Wordpress を構成する例](https://docs.docker.jp/compose/django.html)
+* [Rails アプリケーションをビルド・構成する例](https://docs.docker.jp/compose/rails.html)
+* [Wordpress を構成する例](https://docs.docker.jp/compose/wordpress.html)
 
 が紹介されています。Django や Rails はフレームワークを使うため少々複雑ですが、興味があれば試してみるのもよいでしょう。
 
