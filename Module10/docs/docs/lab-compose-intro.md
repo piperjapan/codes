@@ -35,7 +35,7 @@
 
 ```bash
 cd ~
-git clone https://github.com/momosk-dt/Piper-for-Partner-2020.git
+git clone https://github.com/piperjapan/codes.git
 ```
 
 
