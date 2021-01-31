@@ -16,7 +16,7 @@
 このラボでは、`lab-docker-override` ディレクトリを利用します。
 
 ```bash
-cd ~/Piper-for-Partner-2020/Module10/lab-docker-override
+cd ~/code/Module10/lab-docker-override
 ```
 
 
