@@ -16,7 +16,7 @@
 このラボでは、`lab-docker-override` ディレクトリを利用します。
 
 ```bash
-cd ~/code/Module10/lab-docker-override
+cd ~/codes/Module10/lab-docker-override
 ```
 
 

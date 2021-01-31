@@ -8,7 +8,7 @@
 このラボでは、`lab-docker-build` ディレクトリを利用します。
 
 ```bash
-cd ~/Piper-for-Partner-2020/Module10/lab-docker-build
+cd ~/codes/Module10/lab-docker-build
 ```
 
 

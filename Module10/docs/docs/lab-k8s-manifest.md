@@ -8,7 +8,7 @@
 このラボでは、`lab-k8s-manifest` ディレクトリを利用します。
 
 ```bash
-cd ~/Piper-for-Partner-2020/Module10/lab-k8s-manifest
+cd ~/codes/Module10/lab-k8s-manifest
 ```
 
 
