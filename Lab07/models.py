@@ -24,7 +24,7 @@ from config import ecs_test_drive
 
 # Otherwise, assume running locally with local MongoDB instance
 #else:
-client = MongoClient("mongodb://USERNAME:PASSWORD@cluster0-shard-00-00.jnkoj.mongodb.net:27017,cluster0-shard-00-01.jnkoj.mongodb.net:27017,cluster0-shard-00-02.jnkoj.mongodb.net:27017/?ssl=true&replicaSet=atlas-10dctt-shard-0&authSource=admin&retryWrites=true&w=majority")
+client = MongoClient("mongodb://USERNAME:PASSWORD@cluster0-shard-00-00.mzmpq.mongodb.net:27017,cluster0-shard-00-01.mzmpq.mongodb.net:27017,cluster0-shard-00-02.mzmpq.mongodb.net:27017/?ssl=true&replicaSet=atlas-4qm2w8-shard-0&authSource=admin&retryWrites=true&w=majority")
 DB_NAME = "testdb1"  ##### Make sure this create your unique MongoDB database name######
 
 # Get database connection with database name
