@@ -10,7 +10,8 @@
 import os
 import boto3
 from pymongo import MongoClient
-from werkzeug import secure_filename
+#from werkzeug import secure_filename
+from werkzeug.utils import secure_filename
 from PIL import Image
 from config import ecs_test_drive
 
