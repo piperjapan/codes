@@ -37,6 +37,7 @@ extra:
 
 nav:
   - このラボについて: index.md
+  - 事前準備: prep-prework.md
   - Docker ラボ:
     - Lab 0 - 準備: prep-docker-vm.md
     - Lab 1 - はじめに: lab-docker-intro.md
