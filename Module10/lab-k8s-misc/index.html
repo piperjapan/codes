@@ -531,6 +531,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#kustomize" class="md-nav__link">
+    Kustomize によるマニフェストの管理
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#helm" class="md-nav__link">
     Helm によるさらなる活用
   </a>
@@ -618,6 +625,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#kustomize" class="md-nav__link">
+    Kustomize によるマニフェストの管理
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#helm" class="md-nav__link">
     Helm によるさらなる活用
   </a>
@@ -654,6 +668,10 @@ kubectl <span class="nb">exec</span> &lt;Pod 名&gt; env
 <div class="highlight"><pre><span></span><code>kubectl <span class="nb">exec</span> -it &lt;Pod 名&gt; -c &lt;コンテナ名&gt; bash
 kubectl <span class="nb">exec</span> &lt;Pod 名&gt; -c &lt;コンテナ名&gt; env
 </code></pre></div>
+<h2 id="kustomize">Kustomize によるマニフェストの管理<a class="headerlink" href="#kustomize" title="Permanent link">&para;</a></h2>
+<p>アプリケーションの構成が複雑になってくると、管理すべきマニフェストファイルも、アプリケーション別、環境別に複数ファイルに分かれるようになり、相応に複雑になってきます。</p>
+<p>こうしたときに、<strong>Kustomize</strong> を利用すると、マニフェストを共通化しつつ環境ごとに一部の値を変更してデプロイしたり、任意のマニフェストファイルをまとめて適用したりできて、たいへん便利です。</p>
+<p>Kustomize の基本的な機能は最近の <code>kubectl</code> には組み込まれており、<a href="https://kubectl.docs.kubernetes.io/references/kustomize/kustomization/">Kustomization ファイル</a> を用意すれば今回のラボ環境でもすぐに利用できます。詳細は <a href="https://kubernetes.io/docs/tasks/manage-kubernetes-objects/kustomization/">ドキュメント</a> で確認できます。</p>
 <h2 id="helm">Helm によるさらなる活用<a class="headerlink" href="#helm" title="Permanent link">&para;</a></h2>
 <p><strong>Helm</strong> を利用すると、マニフェストすら作らずに簡単に Kubernetes 上に完全に機能するアプリケーションを展開できます。</p>
 <p>イメージでいうと、<strong><code>apt</code> や <code>yum</code>（<code>dnf</code>）でパッケージをインストールするのに近しい操作感</strong>です。Helm Hub などで既成パッケージが多数公開されていますので、興味があればこちらも調べてみるとよいでしょう。</p>

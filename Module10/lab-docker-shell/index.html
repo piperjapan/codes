@@ -741,15 +741,15 @@ docker ps -a
 <h2 id="_5">コマンドの実行（参考）<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <p>実際には、シェルに限らずコンテナ内の任意のコマンドを実行できます（というより、任意のコマンドを実行させる方法を使ってシェルを起動させてている、という表現の方が正確です）。</p>
 <p>起動済みのコンテナに対して実行すれば、ファイルの存在や環境変数を確認するために非常に便利です。データベースのコンテナにワンライナでクエリを渡す目的などでも利用できます。</p>
-<div class="highlight"><pre><span></span><code>docker run -d --name p4app -e SAMPLE_VALUE=hoge -p 80:8080 kurokobo/p4app:0.0.1
-docker exec p4app ls -l
-docker exec p4app env
+<div class="highlight"><pre><span></span><code>docker run -d --name p4app -e <span class="nv">SAMPLE_VALUE</span><span class="o">=</span>hoge -p <span class="m">80</span>:8080 kurokobo/p4app:0.0.1
+docker <span class="nb">exec</span> p4app ls -l
+docker <span class="nb">exec</span> p4app env
 docker rm -f p4app
 </code></pre></div>
 <p>このほか、<code>--rm</code> と組み合わせると、コンテナイメージ内のバイナリをオンデマンドで実行でき、（初回はプルが走りはするものの二回目以降は）ローカルでコマンドを直接実行するのに近しい操作感が得られます。さらにシェルの <code>alias</code> と組み合わせるとより便利です。</p>
-<div class="highlight"><pre><span></span><code>docker run --rm docker/whalesay cowsay &#39;Hello, Piper!&#39;
-alias whalesay=&#39;docker run --rm docker/whalesay cowsay&#39;
-whalesay &#39;Hello, Piper!&#39;
+<div class="highlight"><pre><span></span><code>docker run --rm docker/whalesay cowsay <span class="s1">&#39;Hello, Piper!&#39;</span>
+<span class="nb">alias</span> <span class="nv">whalesay</span><span class="o">=</span><span class="s1">&#39;docker run --rm docker/whalesay cowsay&#39;</span>
+whalesay <span class="s1">&#39;Hello, Piper!&#39;</span>
 </code></pre></div>
                 
               

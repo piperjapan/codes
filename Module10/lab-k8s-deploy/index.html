@@ -850,6 +850,11 @@ pod/p4app-697568cdf7-d54dq   <span class="m">1</span>/1     Running   <span clas
 <p>これで、アプリケーションが外部に公開されました。</p>
 <p><a href="https://user-images.githubusercontent.com/2920259/99142042-9878c900-2694-11eb-9826-a160a0725233.png"><img alt="image" src="https://user-images.githubusercontent.com/2920259/99142042-9878c900-2694-11eb-9826-a160a0725233.png" /></a></p>
 <p>Pod がクラスタのどのノードで動作していたとしても、IP アドレスは変わりません。この IP アドレスに対するアクセスは、Kubernetes の機能によって、Pod の居場所にかかわらず適切にルーティングされます。これは Kubernetes の強力な機能の一つです。</p>
+<div class="admonition note">
+<p class="admonition-title">Ingress</p>
+<p>ここでは Service だけを利用してサービスを公開しましたが、外部からアクセスするプロトコルが HTTP または HTTPS の場合は、Service は直接はインタネットに公開せず、Service とインタネットとの間に追加で Ingress リソースをデプロイする構成も一般的です。</p>
+<p>このラボでは取り扱いませんが、Service は L4 相当の経路制御を担うのに対し、Ingress は L7 相当での経路制御を担います。SSL の終端のほか、ホスト名やパスベースのルーティング（アクセスされた URL に応じて、受け付ける Service を切り替える機能）などが可能です。</p>
+</div>
 <h2 id="_6">アプリケーションのスケール<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
 <p>この段階では、Web サーバの Pod は 1 つしかないため、Service は外部からのアクセスを毎回同じ Pod にルーティングします。</p>
 <p>ここでは、アプリケーションのスケールアウトを実際に試し、非常に簡単にロードバランスが実現できることを確認します。</p>

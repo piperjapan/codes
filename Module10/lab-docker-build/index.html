@@ -955,7 +955,7 @@ docker images
 <li>手元に元の Dockerfile やそこで必要とされているファイル群がない</li>
 <li>置き換えたいファイルなど、元のイメージから変更したい点が明確である</li>
 </ul>
-<p>場合は、例えば <strong><code>p4app</code> 自体をベースイメージにしてしまい、そこからの差分だけ記述する</strong> と、同じ目的を達成できます。これはつまり、Dockerfile が以下だけで、手元に <code>app.py</code> と <code>bg.jpg</code> だけあればビルドできるということです。</p>
+<p>場合は、例えば <strong><code>p4app</code> 自体をベースイメージにしてしまい、そこからの差分だけ記述する</strong> と、同じ目的を達成できます。これはつまり、手元に <code>app.py</code> と <code>bg.jpg</code> だけあれば、Dockerfile が以下だけでも目的の状態のイメージをビルドできるということです。</p>
 <div class="highlight"><pre><span></span><code><span class="k">FROM</span> <span class="s">kurokobo/p4app:0.0.1</span>
 
 <span class="k">ADD</span> app.py /app

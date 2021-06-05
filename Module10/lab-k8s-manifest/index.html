@@ -901,7 +901,7 @@ kubectl get all
 <p>しばらく待って、<code>get all</code> の結果が <code>service/kubernetes</code> のみになったら、削除は完了です。</p>
 <div class="admonition note">
 <p class="admonition-title">セルフヒーリング</p>
-<p><code>delete services --all</code> で問答無用ですべての Service を削除していますが、<code>kubernetes</code> は管理上必要な Service です。<strong>1 つあるべき</strong> と定義されているため、手で消したとしても自動的に再度作成されます。</p>
+<p><code>delete services --all</code> で問答無用ですべての Service を削除していますが、<code>service/kubernetes</code> は管理上必要な Service です。<strong>1 つあるべき</strong> と定義されているため、手で消したとしても自動的に再度作成されます。</p>
 </div>
 <p>デプロイします。</p>
 <div class="highlight"><pre><span></span><code>kubectl apply -f manifest.yaml
