@@ -2,7 +2,6 @@
 
 このラボでは、Kubernetes の重要な概念のひとつであるマニフェストの活用を実践します。
 
-
 ## 準備
 
 このラボでは、`lab-k8s-manifest` ディレクトリを利用します。
@@ -10,7 +9,6 @@
 ```bash
 cd ~/codes/Module10/lab-k8s-manifest
 ```
-
 
 ## マニフェストを利用した移植性
 
@@ -20,7 +18,6 @@ Docker Compose での Compose ファイルのように、Kubernetes でもアプ
 
 ここでは、実際にマニフェストファイルを作成し、それを元に再デプロイしてみます。
 
-
 ## 既存のリソースからのマニフェストの作成と利用
 
 Kubernetes では、`get` コマンドに `-o yaml` を与えることで、その時点の構成を YAML フォーマットで出力できます。これによって得られた YAML ファイルは、そのままマニフェストファイルとして利用可能です。
@@ -28,7 +25,6 @@ Kubernetes では、`get` コマンドに `-o yaml` を与えることで、そ�
 [![image](https://user-images.githubusercontent.com/2920259/99185297-2e434f80-278c-11eb-9a2b-010350e3cac8.png)](https://user-images.githubusercontent.com/2920259/99185297-2e434f80-278c-11eb-9a2b-010350e3cac8.png)
 
 ここでは、実際に現在のリソースの情報をマニフェストとして出力（①）し、環境を削除後、マニフェストによるデプロイ（②）を実勢します。
-
 
 ### マニフェストの作成
 
@@ -60,11 +56,10 @@ kubectl get deployments -o yaml > deployments.yaml
 
 !!! note "編集方法"
     右上の `[ エディタを開く ]` アイコンから、**Cloud Shell Editor** を起動して、GUI でファイルを操作できます。保存は `[Ctrl] + [S]` です。
-    
-    [![image](https://user-images.githubusercontent.com/2920259/99142917-c6620b80-269c-11eb-8120-0b25685ab159.png)](https://user-images.githubusercontent.com/2920259/99142917-c6620b80-269c-11eb-8120-0b25685ab159.png)
-    
-    Cloud Shell Editor でなく、`vi` も利用できます。
 
+    [![image](https://user-images.githubusercontent.com/2920259/99142917-c6620b80-269c-11eb-8120-0b25685ab159.png)](https://user-images.githubusercontent.com/2920259/99142917-c6620b80-269c-11eb-8120-0b25685ab159.png)
+
+    Cloud Shell Editor でなく、`vi` も利用できます。
 
 ### マニフェストの利用
 
@@ -90,7 +85,6 @@ kubectl get all
 
 レプリカを 3 つにしたため、`[ READY ]` が `3/3` になり、実際にブラウザでアクセスすると、今度は 3 つの Web サーバにロードバランスされていることが確認できます。
 
-
 ## きれいなマニフェストを手作りする
 
 `get` コマンドにより、YAML ファイルが作成できました。しかしこの YAML ファイルは、情報が多く、人間が管理するのは少し大変そうです。
@@ -100,7 +94,6 @@ kubectl get all
 [![image](https://user-images.githubusercontent.com/2920259/99185301-37ccb780-278c-11eb-8433-918313ed0724.png)](https://user-images.githubusercontent.com/2920259/99185301-37ccb780-278c-11eb-8433-918313ed0724.png)
 
 ここでは、GitHub にあらかじめ配置しておいたサンプルのマニフェスト（①）を使って、マニフェストの中身の確認と再デプロイ（②）を実践します。
-
 
 ### サンプルマニフェストの確認
 
@@ -196,7 +189,6 @@ Deployment と Service が 2 つずつ定義されていることがわかりま
 
 コマンドで手作りした環境を元にマニフェストを作成することももちろんありますが、その場合でも、実際の運用に持ち込むためには、不要な行を削除したりファイルの分け方を工夫したりして、ファイルをシンプルに保つ工夫をする場合がほとんどです。
 
-
 ### サンプルマニフェストの利用
 
 実際に使ってみましょう。
@@ -212,7 +204,7 @@ kubectl get all
 しばらく待って、`get all` の結果が `service/kubernetes` のみになったら、削除は完了です。
 
 !!! note "セルフヒーリング"
-    `delete services --all` で問答無用ですべての Service を削除していますが、`kubernetes` は管理上必要な Service です。**1 つあるべき** と定義されているため、手で消したとしても自動的に再度作成されます。
+    `delete services --all` で問答無用ですべての Service を削除していますが、`service/kubernetes` は管理上必要な Service です。**1 つあるべき** と定義されているため、手で消したとしても自動的に再度作成されます。
 
 デプロイします。
 
@@ -228,7 +220,6 @@ kubectl get all
 このように、シンプルなマニフェストファイルでも目的を達成できることがわかりました。
 
 マニフェストファイルに書くべき内容はほとんど決まっており、使いまわせる部分も非常に多いため、コマンドで手作りして `-o yaml` しなくても、慣れてくればゼロから目的のマニフェストファイルを作ることも（凝ったことをしない範囲では）難しくありません。
-
 
 ## ここまででできたこと
 

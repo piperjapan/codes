@@ -1,3 +1,3 @@
 $(function () {
-    $("a:has(img)").addClass("no-icon");
+  $("a:has(img)").addClass("no-icon");
 });

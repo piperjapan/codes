@@ -10,7 +10,6 @@
 
 ここでは、この二パタンを簡単に実践してみましょう。
 
-
 ## 準備
 
 このラボでは、`lab-docker-override` ディレクトリを利用します。
@@ -19,19 +18,18 @@
 cd ~/codes/Module10/lab-docker-override
 ```
 
-
 ## 環境変数による設定の変更
 
 [![image](https://user-images.githubusercontent.com/2920259/99256361-a1b29300-2858-11eb-9265-26576af92d66.png)](https://user-images.githubusercontent.com/2920259/99256361-a1b29300-2858-11eb-9265-26576af92d66.png)
 
 今回使っている `p4app` では、次の項目を環境変数で制御できるようにしています。
 
-| 環境変数 | 意味 | デフォルト値 |
-| - | - | - |
-| `APP_PORT` | `p4app` 自体の待ち受けポート | `8080` |
-| `DB_HOST` | Redis データベースのホスト名 | `redis` |
-| `DB_PORT` | Redis データベースのポート番号 | `6379` |
-| `MESSAGE` | アプリケーションのカウンタの下に表示するメッセージ | `Here I'm having fun with Containers.` |
+| 環境変数   | 意味                                               | デフォルト値                           |
+| ---------- | -------------------------------------------------- | -------------------------------------- |
+| `APP_PORT` | `p4app` 自体の待ち受けポート                       | `8080`                                 |
+| `DB_HOST`  | Redis データベースのホスト名                       | `redis`                                |
+| `DB_PORT`  | Redis データベースのポート番号                     | `6379`                                 |
+| `MESSAGE`  | アプリケーションのカウンタの下に表示するメッセージ | `Here I'm having fun with Containers.` |
 
 ここでは、例として `DB_HOST` と `MESSAGE` を変更してみます。
 
@@ -61,7 +59,6 @@ docker rm -f my-awesome-redis
 docker ps -a
 ```
 
-
 ## 設定ファイルの置き換えによる設定の変更
 
 [![image](https://user-images.githubusercontent.com/2920259/99256912-7e3c1800-2859-11eb-810f-1c5c4f4f0fd0.png)](https://user-images.githubusercontent.com/2920259/99256912-7e3c1800-2859-11eb-810f-1c5c4f4f0fd0.png)
@@ -86,7 +83,6 @@ docker run -d --name p4app -p 80:8080 --network p4-network -v $PWD/img/new-bg.jp
 
 今回は画像で実践しましたが、実際には、例えばコンテナ内の `*.conf` ファイルなどを同様の手法で事前に用意した自前のファイルに置き換えられます。環境変数での変更をサポートしていない範囲も（強引に）書き換えられるため、非常に強力です。
 
-
 ## クリーンアップ
 
 次のラボに備えて、すべてのコンテナとネットワークとボリュームを削除しましょう。
@@ -100,7 +96,6 @@ docker ps -a
 
 !!! note "`volume prune`"
     停止中のものを含め、存在するどのコンテナからも使われていないボリュームをすべて削除するコマンドです。
-
 
 ## ここまででできたこと
 

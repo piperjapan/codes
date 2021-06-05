@@ -4,11 +4,10 @@
 
 この手順では、当日までに実施が必要な事前準備として、次の作業を行います。
 
-* アカウントの作成
-* 管理コンソールへのログイン
-* プロジェクトの作成
-* 仮想マシンの作成と削除
-
+- アカウントの作成
+- 管理コンソールへのログイン
+- プロジェクトの作成
+- 仮想マシンの作成と削除
 
 ## アカウントの作成
 
@@ -22,11 +21,9 @@
 !!! note "Google アカウント"
     GCP の利用には、Google アカウントが必要です。Google アカウントを持っていない場合は、途中の [アカウントを作成](https://accounts.google.com/) のリンクから作成したうえで作業してください。
 
-
 ## 管理コンソールへのログイン
 
 GCP の管理コンソール（[https://console.cloud.google.com/](https://console.cloud.google.com/)）にアクセスし、Google アカウントでログインします。
-
 
 ## プロジェクトの作成
 
@@ -40,11 +37,9 @@ GCP の管理コンソール（[https://console.cloud.google.com/](https://conso
 
 [![image](https://user-images.githubusercontent.com/2920259/98776725-d7a7df80-2432-11eb-86f8-56ca58101b75.png)](https://user-images.githubusercontent.com/2920259/98776725-d7a7df80-2432-11eb-86f8-56ca58101b75.png)
 
-
 ## 仮想マシンの作成と削除
 
 ラボ当日の操作のイメージアップと操作感の確認を兼ねて、実際に仮想マシンの作成と削除を行います。
-
 
 ### 作成
 
@@ -52,8 +47,8 @@ GCP の管理コンソール（[https://console.cloud.google.com/](https://conso
 
 [![image](https://user-images.githubusercontent.com/2920259/98776867-1dfd3e80-2433-11eb-9d1f-6553393dbffa.png)](https://user-images.githubusercontent.com/2920259/98776867-1dfd3e80-2433-11eb-9d1f-6553393dbffa.png)
 
-!!! note "`[ 有効化 ]` ボタンが表示されたら"
-    ここで **Compute Engine API** の `[ 有効化 ]` が表示されたら、`[ 有効化 ]` をクリックして、画面が切り替わるまで待ちます。数分待っても切り替わらない場合は、ブラウザのリロードを試します。
+!!! note "`[ 有効化する ]` ボタンが表示されたら"
+    ここで **Compute Engine API** の `[ 有効化する ]` ボタンが表示されたら、`[ 有効化する ]` をクリックして、画面が切り替わるまで待ちます。数分待っても切り替わらない場合は、ブラウザのリロードを試します。
 
     [![image](https://user-images.githubusercontent.com/2920259/118272624-d8aeec00-b4fd-11eb-8f92-afd2cccb3980.png)](https://user-images.githubusercontent.com/2920259/118272624-d8aeec00-b4fd-11eb-8f92-afd2cccb3980.png)
 
@@ -63,13 +58,13 @@ GCP の管理コンソール（[https://console.cloud.google.com/](https://conso
 
 作成画面では、以下の設定を変更します。
 
-| 項目 | 値 |
-| - | - |
-| `リージョン` | `asia-northeast1（東京）` |
-| `シリーズ` | `N1` |
-| `マシンタイプ` | `f1-micro` |
-| `ブートディスク` | `Container Optimized OS` の最新の `stable` |
-| `ファイアウォール` | `HTTP トラフィックを許可する` にチェック |
+| 項目               | 値                                         |
+| ------------------ | ------------------------------------------ |
+| `リージョン`       | `asia-northeast1（東京）`                  |
+| `シリーズ`         | `N1`                                       |
+| `マシンタイプ`     | `f1-micro`                                 |
+| `ブートディスク`   | `Container Optimized OS` の最新の `stable` |
+| `ファイアウォール` | `HTTP トラフィックを許可する` にチェック   |
 
 [![image](https://user-images.githubusercontent.com/2920259/98777740-a03a3280-2434-11eb-968c-645f35957da0.png)](https://user-images.githubusercontent.com/2920259/98777740-a03a3280-2434-11eb-968c-645f35957da0.png)
 
@@ -91,7 +86,6 @@ GCP の管理コンソール（[https://console.cloud.google.com/](https://conso
 
 作成した仮想マシンは **起動したままだと課金対象になる** ため、当日までの不必要な無料クレジットの消費を抑える目的で、続けて **仮想マシンの削除** を行います。
 
-
 ### 削除
 
 GCP のコンソールで、`[ Compute Engine ]` > `[ VM インスタンス ]` を開き、作成した仮想マシンの右端の `[ ︙ ]` メニュから `[ 削除 ]` を選択します。
@@ -100,15 +94,14 @@ GCP のコンソールで、`[ Compute Engine ]` > `[ VM インスタンス ]` �
 
 確認画面で再び `[ 削除 ]` をクリックすると、削除が開始されます。数分かかるので、完了を待機します。
 
-
 ## まとめ
 
 当日のラボに備え、次の作業を行いました。
 
-* アカウントの作成
-* 管理コンソールへのログイン
-* プロジェクトの作成
-* 仮想マシンの作成と削除
+- アカウントの作成
+- 管理コンソールへのログイン
+- プロジェクトの作成
+- 仮想マシンの作成と削除
 
 これで、準備は万端です。当日を楽しみにお待ちください。
 
