@@ -10,16 +10,14 @@
 
 こうしたとき、**ボリューム** が利用できます。ポイントは、次の二点です。
 
-* コンテナの **中** の任意のパスに
-* コンテナの **外** のファイルシステム（またはファイル）をマウントできる
+- コンテナの **中** の任意のパスに
+- コンテナの **外** のファイルシステム（またはファイル）をマウントできる
 
 ここでは実際に、Docker でよく使われるデータ永続化の方法のうち、代表的な二つを実践します。
-
 
 ## ボリューム
 
 データを永続化する方法のうち、**コンテナが削除されてもデータを残しておきたい** ときに利用されるのが、**ボリューム** です。
-
 
 ### ボリュームの作成
 
@@ -33,7 +31,6 @@ docker volume ls
 ```
 
 [![image](https://user-images.githubusercontent.com/2920259/99185215-c987f500-278b-11eb-83d9-70b2732c0b7b.png)](https://user-images.githubusercontent.com/2920259/99185215-c987f500-278b-11eb-83d9-70b2732c0b7b.png)
-
 
 ### ボリュームの利用
 
@@ -76,7 +73,6 @@ docker volume ls
 
 [![image](https://user-images.githubusercontent.com/2920259/99185572-0fde5380-278e-11eb-9ae1-2a5eeba54284.png)](https://user-images.githubusercontent.com/2920259/99185572-0fde5380-278e-11eb-9ae1-2a5eeba54284.png)
 
-
 ### データの永続化の確認
 
 では、再び Redis のコンテナを作成します。
@@ -90,7 +86,6 @@ docker run -d --name redis --network p4-network -v redis-data:/data redis:6.0
 [![image](https://user-images.githubusercontent.com/2920259/99185224-d278c680-278b-11eb-887d-5559e65c7fd4.png)](https://user-images.githubusercontent.com/2920259/99185224-d278c680-278b-11eb-887d-5559e65c7fd4.png)
 
 ブラウザでアプリケーションの動作を確認すると、カウンタは、コンテナを削除する前の続きからインクリメントされることがわかります。
-
 
 ### ボリュームの削除
 
@@ -106,11 +101,9 @@ docker volume rm redis-data
 !!! note "実際はどこに？"
     ボリュームを作ったり消したりできるのはわかりましたが、具体的にどこにあるのでしょうか？ `docker volume inspect <ボリューム名>` で調査でき、デフォルトでは Docker ホストの `/var/lib/docker/volumes` 配下に作成されていることがわかります。
 
-
 ## バインドマウント
 
 ボリュームを使った永続化では、Docker が管理する論理的な領域を利用しました。それに対し、バインドマウントでは、Docker ホストの具体的なパスをコンテナ内にマウントします。
-
 
 ### バインドマウントを使った起動
 
@@ -129,7 +122,6 @@ ls -l
     ここでも先ほどと同様に `--mount source=$PWD/redis,target=/data` とすれば `--mount` で `-v` を代替できます。
 
 実行すると、カレントディレクトリに `redis` ディレクトリが作成されていることがわかります。
-
 
 ### 保存されたデータの確認
 
@@ -152,7 +144,6 @@ total 4
 
 [![image](https://user-images.githubusercontent.com/2920259/99185242-e3c1d300-278b-11eb-9467-e0bd8299d28c.png)](https://user-images.githubusercontent.com/2920259/99185242-e3c1d300-278b-11eb-9467-e0bd8299d28c.png)
 
-
 ### データの永続化の確認
 
 Redis は、起動時に `dump.rdb` があると、その中身を自動的にインポートします。新しい Redis コンテナの `/data` にこのパスをマウントすれば、データベースの中身が元通りになるということです。
@@ -173,7 +164,6 @@ docker rm -f redis
 docker ps -a
 sudo rm -rf redis
 ```
-
 
 ## ここまででできたこと
 
