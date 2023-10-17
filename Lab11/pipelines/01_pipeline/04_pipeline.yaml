@@ -15,7 +15,7 @@ spec:
   - name: git-revision
     type: string
     description: revision to be used from repo of the code for deployment
-    default: master
+    default: "master"
   - name: IMAGE
     type: string
     description: image to be build from the code
@@ -30,10 +30,6 @@ spec:
     params:
     - name: url
       value: $(params.git-url)
-    - name: subdirectory
-      value: ""
-    - name: deleteExisting
-      value: "true"
     - name: revision
       value: $(params.git-revision)
   - name: build-image
@@ -41,6 +37,8 @@ spec:
       name: buildah
       kind: ClusterTask
     params:
+    - name: TLSVERIFY
+      value: "false"
     - name: IMAGE
       value: $(params.IMAGE)
     workspaces:
